@@ -2,7 +2,7 @@
 kind: pipeline
 name: default
 
-# Disable default clone 
+# Disable default clone
 clone:
   disable: true
 
@@ -137,7 +137,7 @@ steps:
     settings:
       context: target/docker/stage
       dockerfile: target/docker/stage/Dockerfile
-      repo: thehiveproject/cortex
+      repo: xyrodileas/cortex
       auto_tag: true
       username: {from_secret: docker_username}
       password: {from_secret: docker_password}
