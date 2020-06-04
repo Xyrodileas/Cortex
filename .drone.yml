@@ -2,6 +2,7 @@
 kind: pipeline
 name: default
 
+
 # Disable default clone
 clone:
   disable: true
