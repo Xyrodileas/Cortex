@@ -24,14 +24,14 @@ steps:
 
   # Run project tests
   - name: run tests and build stage
-    image: thehiveproject/drone-scala-node
+    image: xyrodileas/drone-scala-node
     commands:
       - . ~/.nvm/nvm.sh
       - sbt -Duser.home=$PWD test stage
 
   # Build packages
   - name: build packages
-    image: thehiveproject/drone-scala-node
+    image: xyrodileas/drone-scala-node
     settings:
       pgp_key: {from_secret: pgp_key}
     commands:
