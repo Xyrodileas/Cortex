@@ -39,9 +39,8 @@ steps:
       - |
         . ~/.nvm/nvm.sh 
         apt update && apt install -fy dpkg-sig rpm gnupg lintian fakeroot
-        cp /usr/bin/gpg /bin/
+        echo 'addSbtPlugin("io.crashbox" % "sbt-gpg" % "<latest_tag>")' > $PWD/.sbt/1.0/plugins/gpg.sbt
         [ -n "$PLUGIN_PGP_KEY" ] && gpg --batch --import - <<< $PLUGIN_PGP_KEY
-        ls -lart $PWD/.sbt/
         sbt -Duser.home=$PWD docker:stage debian:packageBin rpm:packageBin universal:packageBin
     when:
       event: [tag]
