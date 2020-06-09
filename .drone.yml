@@ -37,7 +37,7 @@ steps:
       pgp_key: {from_secret: pgp_key}
     commands:
       - |
-        . ~/.nvm/nvm.sh
+        . ~/.nvm/nvm.sh 
         [ -n "$PLUGIN_PGP_KEY" ] && gpg --batch --import - <<< $PLUGIN_PGP_KEY
         ls -lart $PWD/.sbt/
         sbt -Duser.home=$PWD docker:stage debian:packageBin rpm:packageBin universal:packageBin
