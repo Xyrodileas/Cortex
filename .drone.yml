@@ -39,6 +39,7 @@ steps:
       - |
         . ~/.nvm/nvm.sh 
         apt update && apt install -fy dpkg-sig rpm gnupg lintian fakeroot
+        mkdir -p $PWD/.sbt/1.0/plugins/
         echo 'addSbtPlugin("io.crashbox" % "sbt-gpg" % "<latest_tag>")' > $PWD/.sbt/1.0/plugins/gpg.sbt
         [ -n "$PLUGIN_PGP_KEY" ] && gpg --batch --import - <<< $PLUGIN_PGP_KEY
         set -x
