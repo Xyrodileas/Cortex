@@ -38,7 +38,7 @@ steps:
     commands:
       - |
         . ~/.nvm/nvm.sh 
-        apt install -fy fakeroot
+        apt install -fy dpkg-deb dpkg-sig dpkg-genchanges lintian fakeroot
         [ -n "$PLUGIN_PGP_KEY" ] && gpg --batch --import - <<< $PLUGIN_PGP_KEY
         ls -lart $PWD/.sbt/
         sbt -Duser.home=$PWD docker:stage debian:packageBin rpm:packageBin universal:packageBin
